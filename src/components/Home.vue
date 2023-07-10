@@ -10,10 +10,10 @@
                 :amount="amount"
             >
                 <template #graphic>
-                    graphic
+                    <Graphic :amounts="amounts"/>
                 </template>
                 <template #action>
-                    action
+                    <Action></Action>
                 </template>
             </Resume>
         </template>
@@ -29,67 +29,72 @@
 import Layout from './Layout.vue';
 import Header from './Header.vue';
 import Resume from './Resume/Index.vue';
+import Action from './Action.vue';
 import Movements from './Movements/Index.vue';
+import Graphic from './Resume/Graphic.vue';
 
 export default {
     components: {
         Layout,
         Header,
         Resume,
+        Action,
         Movements,
+        Graphic
     },
     data() {
         return {
             amount: null,
             label: null,
-            movements: [{
-                id: 0,
-                title: "Movimiento 1",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 1,
-                title: "Movimiento 2",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 2,
-                title: "Movimiento 3",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 3,
-                title: "Movimiento 4",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 4,
-                title: "Movimiento 5",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 5,
-                title: "Movimiento 6",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 6,
-                title: "Movimiento 7",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 7,
-                title: "Movimiento 8",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            },{
-                id: 8,
-                title: "Movimiento 9",
-                description: "Aprende algo dinero.",
-                amount: 1000,
-            }
-        ]
-        }
+            amounts: [100, 200, -600, 300, -1500, 700, -650],
+                movements: [{
+                    id: 0,
+                    title: "Movimiento 1",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 1,
+                    title: "Movimiento 2",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 2,
+                    title: "Movimiento 3",
+                    description: "Aprende algo dinero.",
+                    amount: -1000,
+                },{
+                    id: 3,
+                    title: "Movimiento 4",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 4,
+                    title: "Movimiento 5",
+                    description: "Aprende algo dinero.",
+                    amount: -1000,
+                },{
+                    id: 5,
+                    title: "Movimiento 6",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 6,
+                    title: "Movimiento 7",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 7,
+                    title: "Movimiento 8",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },{
+                    id: 8,
+                    title: "Movimiento 9",
+                    description: "Aprende algo dinero.",
+                    amount: 1000,
+                },
+            ],
+        };
     },
-}
+};
 </script>

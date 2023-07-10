@@ -5,14 +5,22 @@
             <p>{{ description}}</p>
         </div>
         <div class="action">
-            <img src="@/assets/trash-icon.svg" alt="borrar" @click="remove" />
-            <p>{{ amount }}</p>
+            <img src="@/assets/trash-icon1.svg" alt="borrar" @click="remove" />
+            <p :class="{ 
+                'red': isNegative, 
+                'green': !isNegative 
+            }">{{ amountCurrency }}</p>
         </div>
     </div>
 </template>
 
 <script setup>
-import { defineProps, toRefs } from 'vue';
+import { defineProps, toRefs, defineEmits, computed } from 'vue';
+
+const currencyFormatter = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+});
 
 const props = defineProps({
     id: {
@@ -31,9 +39,18 @@ const props = defineProps({
 
 const { id, title, description, amount } = toRefs(props);
 
+const amountCurrency = computed (
+    () => currencyFormatter.format(amount.value)
+);
+
+const emit = defineEmits(["remove"]);
+
 const remove = () => {
+    emit("remove", id.value);
     console.log(id.value);
 }
+
+const isNegative = computed(() => amount.value < 0);
 </script>
 
 <style scoped>
